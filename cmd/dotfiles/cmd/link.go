@@ -23,7 +23,7 @@ var linkCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(linkCmd)
 
-	carapace.Gen(editCmd).PositionalAnyCompletion(
+	carapace.Gen(linkCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			if dotfiledir, err := homedir.Expand("~/.local/share/dotfiles"); err != nil {
 				return carapace.ActionMessage(err.Error())
