@@ -16,5 +16,5 @@ func Execute() error {
 }
 
 func init() {
-	carapace.Gen(rootCmd).PositionalAnyCompletion(carapace.ActionFiles(""))
+	carapace.Gen(rootCmd)
 }

@@ -28,7 +28,7 @@ func init() {
 	rootCmd.AddCommand(editCmd)
 
 	carapace.Gen(editCmd).PositionalCompletion(
-		carapace.ActionCallback(func(args []string) carapace.Action {
+		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			if dotfiledir, err := homedir.Expand("~/.local/share/dotfiles"); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {

@@ -26,7 +26,7 @@ func init() {
 	rootCmd.AddCommand(verifyCmd)
 
 	carapace.Gen(verifyCmd).PositionalCompletion(
-		carapace.ActionCallback(func(args []string) carapace.Action {
+		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			if home, err := homedir.Dir(); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {

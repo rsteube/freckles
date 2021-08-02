@@ -27,7 +27,7 @@ func init() {
 	rootCmd.AddCommand(addCmd)
 
 	carapace.Gen(addCmd).PositionalAnyCompletion(
-		carapace.ActionCallback(func(args []string) carapace.Action {
+		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			if home, err := homedir.Dir(); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {
@@ -41,8 +41,8 @@ func init() {
 //   subdir/subsubdir
 //   subdir/subsubder2
 func ActionSubDirectoryFiles(path string) carapace.Action {
-	return carapace.ActionMultiParts("/", func(args, parts []string) carapace.Action {
-		if files, err := ioutil.ReadDir(path + "/" + strings.Join(parts, "/") + "/"); err != nil {
+	return carapace.ActionMultiParts("/", func(c carapace.Context) carapace.Action {
+		if files, err := ioutil.ReadDir(path + "/" + strings.Join(c.Parts, "/") + "/"); err != nil {
 			return carapace.ActionMessage(err.Error())
 		} else {
 			dirs := make([]string, 0)
