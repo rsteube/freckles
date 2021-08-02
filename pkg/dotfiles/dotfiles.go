@@ -76,7 +76,10 @@ func Walk(walkfunc func(dotfile Dotfile) error) error {
 	} else {
 		return filepath.Walk(home+"/.local/share/dotfiles/", func(path string, info os.FileInfo, err error) error {
 			if matcher.Match([]string{strings.TrimPrefix(path, DotfileDir()+"/")}, info.IsDir()) {
-				return filepath.SkipDir
+				if info.IsDir() {
+					return filepath.SkipDir
+				}
+				return nil
 			}
 
 			if !info.IsDir() {
