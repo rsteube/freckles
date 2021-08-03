@@ -9,7 +9,8 @@ import (
 
 var linkCmd = &cobra.Command{
 	Use:   "link",
-	Short: "link a file",
+	Short: "link dotfiles",
+	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		dotfiles.Walk(func(d dotfiles.Dotfile) error {
 			if err := d.Symlink(false); err != nil {

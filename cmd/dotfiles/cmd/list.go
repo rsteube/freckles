@@ -10,6 +10,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "list files",
+	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		dotfiles.Walk(func(dotfile dotfiles.Dotfile) error {
 			fmt.Println(dotfile.Path)

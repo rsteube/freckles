@@ -10,8 +10,8 @@ import (
 )
 
 var editCmd = &cobra.Command{
-	Use:   "edit",
-	Short: "edit a file",
+	Use:   "edit [FILE]",
+	Short: "edit a dotfile",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		if dotfiledir, err := homedir.Expand("~/.local/share/dotfiles"); err == nil {
