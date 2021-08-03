@@ -7,7 +7,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "dotfiles",
-	Short: "",
+	Short: "manage dotfiles",
 	Run:   func(cmd *cobra.Command, args []string) {},
 }
 

@@ -11,15 +11,16 @@ import (
 )
 
 var addCmd = &cobra.Command{
-	Use:   "add",
-	Short: "add a file",
+	Use:   "add [FILE]...",
+	Short: "add dotfiles",
 	Args:  cobra.MinimumNArgs(1),
-	RunE: func(cmd *cobra.Command, args []string) (err error) {
-		d := dotfiles.Dotfile{Path: args[0]}
-		if err = d.Add(false); err == nil {
-			err = d.Symlink(false)
+	Run: func(cmd *cobra.Command, args []string) {
+		for _, arg := range args {
+			d := dotfiles.Dotfile{Path: arg}
+            if err := d.Add(false); err != nil {
+              println(err.Error())
+            }
 		}
-		return
 	},
 }
 

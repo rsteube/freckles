@@ -44,7 +44,9 @@ func (d *Dotfile) Add(force bool) (err error) {
 					err = errors.New(fmt.Sprintf("%v is a directory", d.HomePath()))
 				} else {
 					_ = os.MkdirAll(filepath.Dir(d.DotfilePath()), os.ModePerm)
-					err = os.Rename(d.HomePath(), d.DotfilePath())
+					if err = os.Rename(d.HomePath(), d.DotfilePath()); err == nil {
+                        err = d.Symlink(force)
+                    }
 				}
 			}
 		}
