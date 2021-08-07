@@ -45,8 +45,8 @@ func (d *Dotfile) Add(force bool) (err error) {
 				} else {
 					_ = os.MkdirAll(filepath.Dir(d.DotfilePath()), os.ModePerm)
 					if err = os.Rename(d.HomePath(), d.DotfilePath()); err == nil {
-                        err = d.Symlink(force)
-                    }
+						err = d.Symlink(force)
+					}
 				}
 			}
 		}
@@ -96,10 +96,21 @@ func DotfileDir() string {
 	return home + "/.local/share/dotfiles"
 }
 
+func defaultPatterns() []gitignore.Pattern {
+	return []gitignore.Pattern{
+		gitignore.ParsePattern(".git", []string{}),
+		gitignore.ParsePattern(".dotfileignore", []string{}),
+	}
+}
+
 func dotfileIgnore() (gitignore.Matcher, error) {
-	if patterns, err := readIgnoreFile(osfs.New(DotfileDir()+"/"), []string{}, "/.dotfileignore"); err != nil {
+	if patterns, err := readIgnoreFile(osfs.New(DotfileDir()+"/"), []string{}, "/.dotfileignore"); err != nil && !os.IsNotExist(err) {
+		if os.IsNotExist(err) {
+          return gitignore.NewMatcher(defaultPatterns()), nil
+		}
 		return nil, err
 	} else {
+        patterns = append(patterns, defaultPatterns()...)
 		return gitignore.NewMatcher(patterns), nil
 	}
 }
