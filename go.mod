@@ -13,4 +13,5 @@ require (
 )
 
 replace github.com/rsteube/carapace => ../carapace
+
 replace github.com/rsteube/invoke-completion => ../invoke-completion
