@@ -9,6 +9,9 @@ var rootCmd = &cobra.Command{
 	Use:   "dotfiles",
 	Short: "manage dotfiles",
 	Run:   func(cmd *cobra.Command, args []string) {},
+	CompletionOptions: cobra.CompletionOptions{
+		DisableDefaultCmd: true,
+	},
 }
 
 func Execute() error {

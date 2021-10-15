@@ -9,9 +9,9 @@ import (
 )
 
 var gitCmd = &cobra.Command{
-	Use:   "git",
-	Short: "invoke git on dotfile directory",
-    DisableFlagParsing: true,
+	Use:                "git",
+	Short:              "invoke git on dotfile directory",
+	DisableFlagParsing: true,
 	Run: func(cmd *cobra.Command, args []string) {
 		c := exec.Command("git", append([]string{"-C", dotfiles.DotfileDir()}, args...)...)
 		c.Stdin = os.Stdin
