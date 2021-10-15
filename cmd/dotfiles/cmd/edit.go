@@ -32,7 +32,7 @@ func init() {
 			if dotfiledir, err := homedir.Expand("~/.local/share/dotfiles"); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {
-				return ActionSubDirectoryFiles(dotfiledir)
+				return ActionSubDirectoryFiles(dotfiledir).Invoke(c).Filter([]string{".git/"}).ToA()
 			}
 		}),
 	)

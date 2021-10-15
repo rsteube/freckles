@@ -17,9 +17,9 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		for _, arg := range args {
 			d := dotfiles.Dotfile{Path: arg}
-            if err := d.Add(false); err != nil {
-              println(err.Error())
-            }
+			if err := d.Add(false); err != nil {
+				println(err.Error())
+			}
 		}
 	},
 }
