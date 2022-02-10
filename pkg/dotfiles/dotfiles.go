@@ -45,8 +45,8 @@ func (d *Dotfile) Add(force bool) (err error) {
 				} else {
 					_ = os.MkdirAll(filepath.Dir(d.DotfilePath()), os.ModePerm)
 					if err = os.Rename(d.HomePath(), d.DotfilePath()); err == nil {
-                        err = d.Symlink(force)
-                    }
+						err = d.Symlink(force)
+					}
 				}
 			}
 		}
