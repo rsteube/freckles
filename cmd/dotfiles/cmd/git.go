@@ -4,6 +4,8 @@ import (
 	"os"
 	"os/exec"
 
+	"github.com/rsteube/carapace"
+	git "github.com/rsteube/carapace-bin/completers/git_completer/cmd"
 	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
 )
@@ -23,4 +25,10 @@ var gitCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(gitCmd)
+
+	carapace.Gen(gitCmd).PositionalAnyCompletion(
+		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
+			return carapace.ActionInvoke(git.Execute).Chdir(dotfiles.DotfileDir())
+		}),
+	)
 }
