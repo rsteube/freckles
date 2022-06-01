@@ -28,7 +28,7 @@ func init() {
 
 	carapace.Gen(gitCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-            return bridge.ActionCarapaceBin("git").Chdir(dotfiles.DotfileDir())
+			return bridge.ActionCarapaceBin("git").Chdir(dotfiles.DotfileDir())
 		}),
 	)
 }

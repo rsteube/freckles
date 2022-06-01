@@ -11,14 +11,13 @@ import (
 	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-billy/v5/osfs"
 	"github.com/go-git/go-git/v5/plumbing/format/gitignore"
-	"github.com/mitchellh/go-homedir"
 )
 
 var home string
 
 func init() {
 	var err error
-	if home, err = homedir.Dir(); err != nil {
+	if home, err = os.UserHomeDir(); err != nil {
 		panic("cannot determine user home")
 	}
 }

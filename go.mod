@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/go-git/go-billy/v5 v5.0.0
 	github.com/go-git/go-git/v5 v5.2.0
-	github.com/mitchellh/go-homedir v1.1.0
 	github.com/rsteube/carapace v0.20.4
 	github.com/rsteube/carapace-bin v0.12.6
 	github.com/spf13/cobra v1.4.0
