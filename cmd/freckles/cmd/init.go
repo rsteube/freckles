@@ -12,6 +12,7 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "init freckles folder",
 	Run: func(cmd *cobra.Command, args []string) {
+        // TODO handle error when git is missing
 		if cmd.Flag("clone").Changed {
 			c := exec.Command("git", "clone", cmd.Flag("clone").Value.String(), freckles.FreckleDir())
 			c.Stdin = os.Stdin

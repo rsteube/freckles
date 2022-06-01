@@ -3,7 +3,7 @@ version: '3'
 services:
   build:
     build: .
-    command: sh -c 'sh -c "cd /freckles-bin/cmd/freckles  && go build -ldflags=\"-s -w\" ."'
+    command: sh -c 'sh -c "cd /freckles-bin/cmd/freckles  && go build -ldflags=\"-s -w\" -buildvcs=false ."'
     volumes:
       - '.:/freckles-bin/'
       - 'go:/go/'
