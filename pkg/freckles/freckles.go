@@ -1,4 +1,4 @@
-package dotfiles
+package freckles
 
 import (
 	"bufio"
@@ -22,28 +22,28 @@ func init() {
 	}
 }
 
-type Dotfile struct {
+type Freckle struct {
 	Path string
 }
 
-func (d *Dotfile) HomePath() string {
+func (d *Freckle) HomePath() string {
 	return fmt.Sprintf("%v/%v", home, d.Path)
 }
 
-func (d *Dotfile) DotfilePath() string {
-	return fmt.Sprintf("%v/%v", DotfileDir(), d.Path)
+func (d *Freckle) FrecklePath() string {
+	return fmt.Sprintf("%v/%v", FreckleDir(), d.Path)
 }
 
-func (d *Dotfile) Add(force bool) (err error) {
+func (d *Freckle) Add(force bool) (err error) {
 	if !d.Verify() {
 		var stat os.FileInfo
-		if _, err = os.Stat(d.DotfilePath()); os.IsNotExist(err) || force {
+		if _, err = os.Stat(d.FrecklePath()); os.IsNotExist(err) || force {
 			if stat, err = os.Stat(d.HomePath()); err == nil {
 				if stat.IsDir() {
 					err = errors.New(fmt.Sprintf("%v is a directory", d.HomePath()))
 				} else {
-					_ = os.MkdirAll(filepath.Dir(d.DotfilePath()), os.ModePerm)
-					if err = os.Rename(d.HomePath(), d.DotfilePath()); err == nil {
+					_ = os.MkdirAll(filepath.Dir(d.FrecklePath()), os.ModePerm)
+					if err = os.Rename(d.HomePath(), d.FrecklePath()); err == nil {
 						err = d.Symlink(force)
 					}
 				}
@@ -53,30 +53,30 @@ func (d *Dotfile) Add(force bool) (err error) {
 	return
 }
 
-func (d *Dotfile) Symlink(force bool) (err error) {
+func (d *Freckle) Symlink(force bool) (err error) {
 	_ = os.MkdirAll(filepath.Dir(d.HomePath()), os.ModePerm)
-	err = os.Symlink(d.DotfilePath(), d.HomePath())
+	err = os.Symlink(d.FrecklePath(), d.HomePath())
 	return
 }
 
-func (d *Dotfile) Verify() (ok bool) {
+func (d *Freckle) Verify() (ok bool) {
 	if stat, err := os.Lstat(d.HomePath()); err == nil {
 		if stat.Mode()&os.ModeSymlink == os.ModeSymlink {
 			if destination, err := os.Readlink(d.HomePath()); err == nil {
-				ok = destination == d.DotfilePath()
+				ok = destination == d.FrecklePath()
 			}
 		}
 	}
 	return
 }
 
-func Walk(walkfunc func(dotfile Dotfile) error) error {
-	if matcher, err := dotfileIgnore(); err != nil {
+func Walk(walkfunc func(freckle Freckle) error) error {
+	if matcher, err := frecklesIgnore(); err != nil {
 		println(err.Error())
 		return err
 	} else {
-		return filepath.Walk(home+"/.local/share/dotfiles/", func(path string, info os.FileInfo, err error) error {
-			if matcher.Match([]string{strings.TrimPrefix(path, DotfileDir())}, info.IsDir()) {
+		return filepath.Walk(home+"/.local/share/freckles/", func(path string, info os.FileInfo, err error) error {
+			if matcher.Match([]string{strings.TrimPrefix(path, FreckleDir())}, info.IsDir()) {
 				if info.IsDir() {
 					return filepath.SkipDir
 				}
@@ -84,19 +84,19 @@ func Walk(walkfunc func(dotfile Dotfile) error) error {
 			}
 
 			if !info.IsDir() {
-				walkfunc(Dotfile{Path: strings.TrimPrefix(path, home+"/.local/share/dotfiles/")})
+				walkfunc(Freckle{Path: strings.TrimPrefix(path, home+"/.local/share/freckles/")})
 			}
 			return nil
 		})
 	}
 }
 
-func DotfileDir() string {
-	return home + "/.local/share/dotfiles/"
+func FreckleDir() string {
+	return home + "/.local/share/freckles/"
 }
 
-func dotfileIgnore() (gitignore.Matcher, error) {
-	if patterns, err := readIgnoreFile(osfs.New(DotfileDir()), []string{}, "/.dotfileignore"); err != nil {
+func frecklesIgnore() (gitignore.Matcher, error) {
+	if patterns, err := readIgnoreFile(osfs.New(FreckleDir()), []string{}, "/.frecklesignore"); err != nil {
 		return nil, err
 	} else {
 		return gitignore.NewMatcher(patterns), nil

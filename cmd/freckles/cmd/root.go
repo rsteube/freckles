@@ -7,7 +7,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "freckles",
-	Short: "manage dotfiles",
+	Short: "simple dotfile manager",
 	Run:   func(cmd *cobra.Command, args []string) {},
 	CompletionOptions: cobra.CompletionOptions{
 		DisableDefaultCmd: true,

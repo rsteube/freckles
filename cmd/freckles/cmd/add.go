@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/rsteube/carapace"
-	"github.com/rsteube/freckles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +12,7 @@ var addCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		for _, arg := range args {
-			d := dotfiles.Dotfile{Path: arg}
+			d := freckles.Freckle{Path: arg}
 			if err := d.Add(false); err != nil {
 				println(err.Error())
 			}

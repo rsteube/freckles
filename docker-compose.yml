@@ -3,16 +3,16 @@ version: '3'
 services:
   build:
     build: .
-    command: sh -c 'sh -c "cd /dotfiles-bin/cmd/dotfiles  && go build -ldflags=\"-s -w\" ."'
+    command: sh -c 'sh -c "cd /freckles-bin/cmd/freckles  && go build -ldflags=\"-s -w\" ."'
     volumes:
-      - '.:/dotfiles-bin/'
+      - '.:/freckles-bin/'
       - 'go:/go/'
 
   elvish:
     build: .
     command: elvish
     volumes:
-      - '.:/dotfiles-bin/'
+      - '.:/freckles-bin/'
 
 volumes:
   go:

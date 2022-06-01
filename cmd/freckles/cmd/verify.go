@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/rsteube/freckles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 
@@ -10,7 +10,7 @@ var verifyCmd = &cobra.Command{
 	Short: "verify symlink status",
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		dotfiles.Walk(func(d dotfiles.Dotfile) error {
+		freckles.Walk(func(d freckles.Freckle) error {
 			if d.Verify() {
 				println("[OK]  " + d.Path)
 			} else {
