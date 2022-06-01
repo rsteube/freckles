@@ -1,9 +1,6 @@
 package cmd
 
 import (
-	"io/ioutil"
-	"strings"
-
 	"github.com/mitchellh/go-homedir"
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
@@ -32,29 +29,8 @@ func init() {
 			if home, err := homedir.Dir(); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {
-				return ActionSubDirectoryFiles(home)
+				return carapace.ActionFiles().Chdir(home)
 			}
 		}),
 	)
-}
-
-// ActionSubDirectories completes subdirectories of a given path
-//   subdir/subsubdir
-//   subdir/subsubder2
-func ActionSubDirectoryFiles(path string) carapace.Action {
-	return carapace.ActionMultiParts("/", func(c carapace.Context) carapace.Action {
-		if files, err := ioutil.ReadDir(path + "/" + strings.Join(c.Parts, "/") + "/"); err != nil {
-			return carapace.ActionMessage(err.Error())
-		} else {
-			dirs := make([]string, 0)
-			for _, file := range files {
-				if file.IsDir() {
-					dirs = append(dirs, file.Name()+"/")
-				} else {
-					dirs = append(dirs, file.Name())
-				}
-			}
-			return carapace.ActionValues(dirs...)
-		}
-	})
 }

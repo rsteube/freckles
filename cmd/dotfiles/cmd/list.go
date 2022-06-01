@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/rsteube/carapace/pkg/style"
 	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
 )
@@ -13,7 +14,8 @@ var listCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		dotfiles.Walk(func(dotfile dotfiles.Dotfile) error {
-			fmt.Println(dotfile.Path)
+			_style := style.ForPathExt(dotfiles.DotfileDir() + "/" + dotfile.Path)
+			fmt.Println(format(dotfile.Path, _style))
 			return nil
 		})
 	},
@@ -21,4 +23,8 @@ var listCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(listCmd)
+}
+
+func format(s, _style string) string {
+	return fmt.Sprintf("\033[%vm%v\033[0m", style.SGR(_style), s)
 }
