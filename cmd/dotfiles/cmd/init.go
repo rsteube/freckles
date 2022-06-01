@@ -25,6 +25,12 @@ var initCmd = &cobra.Command{
 			c.Stderr = os.Stderr
 			c.Run()
 		}
+
+		if _, err := os.Stat(dotfiles.DotfileDir() + ".dotfileignore"); os.IsNotExist(err) {
+			if err := os.WriteFile(dotfiles.DotfileDir()+".dotfileignore", []byte(".git\n.dotfileignore\n"), os.ModePerm); err != nil {
+				panic(err.Error())
+			}
+		}
 	},
 }
 
