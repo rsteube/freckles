@@ -5,6 +5,7 @@ import (
 	"os/exec"
 
 	"github.com/rsteube/carapace"
+	"github.com/rsteube/dotfiles-bin/cmd/dotfiles/cmd/action"
 	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
 )
@@ -26,12 +27,6 @@ func init() {
 	rootCmd.AddCommand(editCmd)
 
 	carapace.Gen(editCmd).PositionalCompletion(
-		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			if dotfiledir, err := c.Abs("~/.local/share/dotfiles"); err != nil {
-				return carapace.ActionMessage(err.Error())
-			} else {
-				return carapace.ActionFiles().Chdir(dotfiledir).Invoke(c).Filter([]string{".git/"}).ToA()
-			}
-		}),
+		action.ActionDotfiles(),
 	)
 }

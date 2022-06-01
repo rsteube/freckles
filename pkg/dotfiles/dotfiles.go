@@ -76,7 +76,7 @@ func Walk(walkfunc func(dotfile Dotfile) error) error {
 		return err
 	} else {
 		return filepath.Walk(home+"/.local/share/dotfiles/", func(path string, info os.FileInfo, err error) error {
-			if matcher.Match([]string{strings.TrimPrefix(path, DotfileDir()+"/")}, info.IsDir()) {
+			if matcher.Match([]string{strings.TrimPrefix(path, DotfileDir())}, info.IsDir()) {
 				if info.IsDir() {
 					return filepath.SkipDir
 				}
@@ -92,11 +92,11 @@ func Walk(walkfunc func(dotfile Dotfile) error) error {
 }
 
 func DotfileDir() string {
-	return home + "/.local/share/dotfiles"
+	return home + "/.local/share/dotfiles/"
 }
 
 func dotfileIgnore() (gitignore.Matcher, error) {
-	if patterns, err := readIgnoreFile(osfs.New(DotfileDir()+"/"), []string{}, "/.dotfileignore"); err != nil {
+	if patterns, err := readIgnoreFile(osfs.New(DotfileDir()), []string{}, "/.dotfileignore"); err != nil {
 		return nil, err
 	} else {
 		return gitignore.NewMatcher(patterns), nil
