@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/rsteube/carapace/pkg/style"
 	"github.com/rsteube/freckles-bin/pkg/freckles"
@@ -14,8 +15,12 @@ var listCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		freckles.Walk(func(freckle freckles.Freckle) error {
-			_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
-			fmt.Println(format(freckle.Path, _style))
+			if fileInfo, _ := os.Stdout.Stat(); (fileInfo.Mode() & os.ModeCharDevice) != 0 {
+				_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
+				fmt.Println(format(freckle.Path, _style))
+			} else {
+				fmt.Println(freckle.Path)
+			}
 			return nil
 		})
 	},
