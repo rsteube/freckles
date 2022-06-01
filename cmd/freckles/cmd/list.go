@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
 )
 

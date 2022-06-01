@@ -1,4 +1,4 @@
-module github.com/rsteube/dotfiles-bin
+module github.com/rsteube/freckles-bin
 
 go 1.18
 
