@@ -60,6 +60,8 @@ aurs:
       - rsteube <rsteube@users.noreply.github.com>
     private_key: '{{ .Env.AUR_KEY }}'
     git_url: 'ssh://aur@aur.archlinux.org/freckles-bin.git'
+    optdepends:
+      - 'carapace: for git completion'
 
 nfpms:
   -
