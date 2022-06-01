@@ -1,4 +1,4 @@
-module github.com/rsteube/freckles-bin
+module github.com/rsteube/freckles
 
 go 1.18
 

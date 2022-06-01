@@ -1,7 +1,7 @@
 FROM golang:alpine
 
 ENV GOPATH /go
-RUN ln -s /freckles-bin/cmd/freckles/freckles /usr/local/bin/freckles
+RUN ln -s /freckles/cmd/freckles/freckles /usr/local/bin/freckles
 
 RUN apk add --no-cache curl git github-cli
 

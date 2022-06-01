@@ -3,7 +3,7 @@ package action
 import (
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/freckles-bin/pkg/freckles"
+	"github.com/rsteube/freckles/pkg/freckles"
 )
 
 func ActionFreckles() carapace.Action {
