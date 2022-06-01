@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/freckles-bin/pkg/freckles"
+	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 

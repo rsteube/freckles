@@ -6,8 +6,8 @@ import (
 	"runtime"
 
 	"github.com/rsteube/carapace"
-	"github.com/rsteube/freckles-bin/cmd/freckles/cmd/action"
-	"github.com/rsteube/freckles-bin/pkg/freckles"
+	"github.com/rsteube/freckles/cmd/freckles/cmd/action"
+	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 

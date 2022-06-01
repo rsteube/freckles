@@ -3,9 +3,9 @@ version: '3'
 services:
   build:
     build: .
-    command: sh -c 'sh -c "cd /freckles-bin/cmd/freckles  && go build -ldflags=\"-s -w\" -buildvcs=false ."'
+    command: sh -c 'sh -c "cd /freckles/cmd/freckles  && go build -ldflags=\"-s -w\" -buildvcs=false ."'
     volumes:
-      - '.:/freckles-bin/'
+      - '.:/freckles/'
       - 'go:/go/'
 
   elvish:
@@ -14,7 +14,7 @@ services:
     volumes:
       - "$HOME/.config/gh:/root/.config/gh:ro"
       - "$HOME/.ssh:/root/.ssh:ro"
-      - '.:/freckles-bin/'
+      - '.:/freckles/'
 
 volumes:
   go:

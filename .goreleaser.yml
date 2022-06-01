@@ -34,7 +34,7 @@ brews:
   -
     name: freckles-bin
     description: "simple dotfiles manager"
-    homepage: "https://github.com/rsteube/freckles-bin"
+    homepage: "https://github.com/rsteube/freckles"
     license: "MIT"
     tap:
       owner: rsteube
@@ -43,7 +43,7 @@ brews:
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
 scoop:
   description: "simple dotfiles manager"
-  homepage: "https://github.com/rsteube/freckles-bin"
+  homepage: "https://github.com/rsteube/freckles"
   license: "MIT"
   bucket:
     owner: rsteube
@@ -54,7 +54,7 @@ scoop:
 aurs:
   -
     description: "simple dotfiles manager"
-    homepage: "https://github.com/rsteube/freckles-bin"
+    homepage: "https://github.com/rsteube/freckles"
     license: "MIT"
     maintainers:
       - rsteube <rsteube@users.noreply.github.com>
@@ -64,7 +64,7 @@ aurs:
 nfpms:
   -
     description: "simple dotfiles manager"
-    homepage: "https://github.com/rsteube/freckles-bin"
+    homepage: "https://github.com/rsteube/freckles"
     license: "MIT"
     maintainer: rsteube <rsteube@users.noreply.github.com>
     formats:

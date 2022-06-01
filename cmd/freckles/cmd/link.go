@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/rsteube/carapace"
-	"github.com/rsteube/freckles-bin/pkg/freckles"
+	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 
