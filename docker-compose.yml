@@ -12,6 +12,8 @@ services:
     build: .
     command: elvish
     volumes:
+      - "$HOME/.config/gh:/root/.config/gh:ro"
+      - "$HOME/.ssh:/root/.ssh:ro"
       - '.:/freckles-bin/'
 
 volumes:

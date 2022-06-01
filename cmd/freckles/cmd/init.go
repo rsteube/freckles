@@ -4,6 +4,8 @@ import (
 	"os"
 	"os/exec"
 
+	"github.com/rsteube/carapace"
+	"github.com/rsteube/carapace-bin/pkg/actions/tools/git"
 	"github.com/rsteube/freckles-bin/pkg/freckles"
 	"github.com/spf13/cobra"
 )
@@ -12,7 +14,7 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "init freckles folder",
 	Run: func(cmd *cobra.Command, args []string) {
-        // TODO handle error when git is missing
+		// TODO handle error when git is missing
 		if cmd.Flag("clone").Changed {
 			c := exec.Command("git", "clone", cmd.Flag("clone").Value.String(), freckles.FreckleDir())
 			c.Stdin = os.Stdin
@@ -39,4 +41,8 @@ func init() {
 	initCmd.Flags().String("clone", "", "clone existing repo")
 
 	rootCmd.AddCommand(initCmd)
+
+	carapace.Gen(initCmd).FlagCompletion(carapace.ActionMap{
+		"clone": git.ActionRepositorySearch(),
+	})
 }
