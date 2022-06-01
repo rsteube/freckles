@@ -1,0 +1,72 @@
+before:
+  hooks:
+    - go mod download
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    binary: freckles-bin
+    tags:
+      - release
+archives:
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+    name_template: "freckles-bin_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+brews:
+  -
+    name: freckles-bin
+    description: "simple dotfiles manager"
+    homepage: "https://github.com/rsteube/freckles-bin"
+    license: "MIT"
+    tap:
+      owner: rsteube
+      name: homebrew-tap
+      token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+scoop:
+  description: "simple dotfiles manager"
+  homepage: "https://github.com/rsteube/freckles-bin"
+  license: "MIT"
+  bucket:
+    owner: rsteube
+    name: scoop-bucket
+    token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
+  commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
+
+aurs:
+  -
+    description: "simple dotfiles manager"
+    homepage: "https://github.com/rsteube/freckles-bin"
+    license: "MIT"
+    maintainers:
+      - rsteube <rsteube@users.noreply.github.com>
+    private_key: '{{ .Env.AUR_KEY }}'
+    git_url: 'ssh://aur@aur.archlinux.org/freckles-bin.git'
+
+nfpms:
+  -
+    description: "simple dotfiles manager"
+    homepage: "https://github.com/rsteube/freckles-bin"
+    license: "MIT"
+    maintainer: rsteube <rsteube@users.noreply.github.com>
+    formats:
+      - apk
+      - deb
+      - rpm
