@@ -1,1 +1,1 @@
-# dotfiles-bin
+# freckles-bin
