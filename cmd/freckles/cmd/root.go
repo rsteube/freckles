@@ -25,7 +25,8 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-func Execute() error {
+func Execute(version string) error {
+	rootCmd.Version = version
 	return rootCmd.Execute()
 }
 
