@@ -3,18 +3,18 @@ package action
 import (
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/freckles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/freckles"
 )
 
-func ActionDotfiles() carapace.Action {
+func ActionFreckles() carapace.Action {
 	return carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 		vals := make([]string, 0)
-		dotfiles.Walk(func(dotfile dotfiles.Dotfile) error {
+		freckles.Walk(func(dotfile freckles.Freckle) error {
 			vals = append(vals, dotfile.Path)
 			return nil
 		})
 		return carapace.ActionValues(vals...).Invoke(c).ToMultiPartsA("/").StyleF(func(s string) string {
-			return style.ForPath(dotfiles.DotfileDir() + s)
+			return style.ForPath(freckles.FreckleDir() + s)
 		})
 	})
 }

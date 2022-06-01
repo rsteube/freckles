@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/freckles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 
@@ -13,9 +13,9 @@ var listCmd = &cobra.Command{
 	Short: "list files",
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		dotfiles.Walk(func(dotfile dotfiles.Dotfile) error {
-			_style := style.ForPathExt(dotfiles.DotfileDir() + "/" + dotfile.Path)
-			fmt.Println(format(dotfile.Path, _style))
+		freckles.Walk(func(freckle freckles.Freckle) error {
+			_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
+			fmt.Println(format(freckle.Path, _style))
 			return nil
 		})
 	},
