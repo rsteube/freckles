@@ -6,7 +6,7 @@ import (
 
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/carapace-bin/pkg/actions/bridge"
-	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
 )
 

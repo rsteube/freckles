@@ -3,7 +3,7 @@ package action
 import (
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/carapace/pkg/style"
-	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
+	"github.com/rsteube/freckles-bin/pkg/dotfiles"
 )
 
 func ActionDotfiles() carapace.Action {
