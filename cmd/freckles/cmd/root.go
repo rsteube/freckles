@@ -27,9 +27,11 @@ var rootCmd = &cobra.Command{
 
 func Execute(version string) error {
 	rootCmd.Version = version
+	rootCmd.InitDefaultVersionFlag()
 	return rootCmd.Execute()
 }
 
 func init() {
+	rootCmd.InitDefaultHelpFlag()
 	carapace.Gen(rootCmd)
 }
