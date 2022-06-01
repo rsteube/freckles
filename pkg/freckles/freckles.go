@@ -2,7 +2,6 @@ package freckles
 
 import (
 	"bufio"
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -40,7 +39,7 @@ func (d *Freckle) Add(force bool) (err error) {
 		if _, err = os.Stat(d.FrecklePath()); os.IsNotExist(err) || force {
 			if stat, err = os.Stat(d.HomePath()); err == nil {
 				if stat.IsDir() {
-					err = errors.New(fmt.Sprintf("%v is a directory", d.HomePath()))
+					err = fmt.Errorf("%v is a directory", d.HomePath())
 				} else {
 					_ = os.MkdirAll(filepath.Dir(d.FrecklePath()), os.ModePerm)
 					if err = os.Rename(d.HomePath(), d.FrecklePath()); err == nil {
