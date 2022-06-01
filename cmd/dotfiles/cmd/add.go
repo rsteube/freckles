@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"github.com/mitchellh/go-homedir"
 	"github.com/rsteube/carapace"
 	"github.com/rsteube/dotfiles-bin/pkg/dotfiles"
 	"github.com/spf13/cobra"
@@ -26,7 +25,7 @@ func init() {
 
 	carapace.Gen(addCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			if home, err := homedir.Dir(); err != nil {
+			if home, err := c.Abs("~/"); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {
 				return carapace.ActionFiles().Chdir(home)
