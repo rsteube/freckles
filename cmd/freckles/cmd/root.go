@@ -8,7 +8,18 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "freckles",
 	Short: "simple dotfile manager",
-	Run:   func(cmd *cobra.Command, args []string) {},
+	Example: `  Completion:
+    bash:       source <(freckles _carapace)
+    elvish:     eval (freckles _carapace|slurp)
+    fish:       freckles _carapace | source
+    oil:        source <(freckles _carapace)
+    nushell:    freckles _carapace | save freckles.nu ; nu -c 'source freckles.nu'
+    powershell: freckles _carapace | Out-String | Invoke-Expression
+    tcsh:       eval ` + "`" + `freckles _carapace` + "`" + `
+    xonsh:      exec($(freckles _carapace))
+    zsh:        source <(freckles _carapace)
+    `,
+	Run: func(cmd *cobra.Command, args []string) {},
 	CompletionOptions: cobra.CompletionOptions{
 		DisableDefaultCmd: true,
 	},
