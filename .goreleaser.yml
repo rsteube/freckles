@@ -8,7 +8,8 @@ builds:
       - linux
       - windows
       - darwin
-    binary: freckles-bin
+    main: ./cmd/freckles
+    binary: freckles
     tags:
       - release
 archives:
