@@ -1,6 +1,9 @@
 package cmd
 
 import (
+	"fmt"
+
+	"github.com/rsteube/carapace/pkg/style"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
@@ -10,11 +13,12 @@ var verifyCmd = &cobra.Command{
 	Short: "verify symlink status",
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		freckles.Walk(func(d freckles.Freckle) error {
-			if d.Verify() {
-				println("[OK]  " + d.Path)
+		freckles.Walk(func(freckle freckles.Freckle) error {
+			_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
+			if freckle.Verify() {
+				fmt.Printf("[%v] %v\n", format("OK", style.Green), format(freckle.Path, _style))
 			} else {
-				println("[ERR] " + d.Path)
+				fmt.Printf("[%v] %v\n", format("ERR", style.Red), format(freckle.Path, _style))
 			}
 			return nil
 		})
