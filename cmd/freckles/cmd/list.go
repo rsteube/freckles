@@ -15,12 +15,8 @@ var listCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		freckles.Walk(func(freckle freckles.Freckle) error {
-			if fileInfo, _ := os.Stdout.Stat(); (fileInfo.Mode() & os.ModeCharDevice) != 0 {
-				_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
-				fmt.Println(format(freckle.Path, _style))
-			} else {
-				fmt.Println(freckle.Path)
-			}
+			_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
+			fmt.Println(format(freckle.Path, _style))
 			return nil
 		})
 	},
@@ -31,5 +27,8 @@ func init() {
 }
 
 func format(s, _style string) string {
+	if fileInfo, _ := os.Stdout.Stat(); (fileInfo.Mode() & os.ModeCharDevice) == 0 {
+		return s
+	}
 	return fmt.Sprintf("\033[%vm%v\033[0m", style.SGR(_style), s)
 }
