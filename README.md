@@ -6,6 +6,7 @@
 
 Simple dotfiles manager based on [carapace](https://github.com/rsteube/carapace) using the symlink approach.
 
+[![asciicast](https://asciinema.org/a/499658.svg)](https://asciinema.org/a/499658)
 
 ## Completion
 
