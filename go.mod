@@ -4,13 +4,14 @@ go 1.18
 
 require (
 	github.com/go-git/go-billy/v5 v5.3.1
-	github.com/go-git/go-git/v5 v5.2.0
+	github.com/go-git/go-git/v5 v5.4.2
 	github.com/rsteube/carapace v0.23.0
 	github.com/rsteube/carapace-bin v0.15.0
 	github.com/spf13/cobra v1.5.0
 )
 
 require (
+	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
