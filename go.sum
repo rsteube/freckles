@@ -48,10 +48,10 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rsteube/carapace v0.25.1 h1:zF6gJqrQ82fPv15A8APh2giAjj/IXX1ENri/svNm7VY=
 github.com/rsteube/carapace v0.25.1/go.mod h1:3N1bLcmfoBOn0WwCniEhVF52AqvN//zyV1JrtT52ECw=
-github.com/rsteube/carapace-bin v0.17.0 h1:Ljt8Du5dXedCfccW/UgrqEEKG8vPVlwzqrQbPBUapSg=
-github.com/rsteube/carapace-bin v0.17.0/go.mod h1:ED2phSMnI/2FyhNVzavZ2O/mfflEGhVhQFlZKFoA1QM=
-github.com/rsteube/carapace-spec v0.1.0 h1:w3p43xryGXtobyKWsc9HgZV3LK0dJql2ZPkfIrUewZc=
-github.com/rsteube/carapace-spec v0.1.0/go.mod h1:G4Nv/51y1Rb6DXFZom1OqYxj4t0jhoAaqA0gRApsB4Y=
+github.com/rsteube/carapace-bin v0.17.1 h1:ttkHdk6Zoz2ybj0NH+mZOIcKBnsi7cXHM1hYdW7CN+4=
+github.com/rsteube/carapace-bin v0.17.1/go.mod h1:QnMNXtuVpjPtBiRIRRerrNQ0T/rF9A/miFB+TSjkyQo=
+github.com/rsteube/carapace-spec v0.1.1 h1:KuI5U/e/pYepB5Ktzx4IwN5peIypKlmRuZkVnFq1jzM=
+github.com/rsteube/carapace-spec v0.1.1/go.mod h1:iEWy7r/NJG/pkCKeBsUJrEWKiuPK0+6ktWifvNoqHSg=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
 github.com/sirupsen/logrus v1.4.1/go.mod h1:ni0Sbl8bgC9z8RoU9G6nDWqqs/fq4eDPysMBDgk/93Q=
