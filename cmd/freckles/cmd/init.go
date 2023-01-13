@@ -43,6 +43,6 @@ func init() {
 	rootCmd.AddCommand(initCmd)
 
 	carapace.Gen(initCmd).FlagCompletion(carapace.ActionMap{
-		"clone": git.ActionRepositorySearch(),
+		"clone": git.ActionRepositorySearch(git.SearchOpts{}.Default()),
 	})
 }
