@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/rsteube/carapace"
 	"github.com/rsteube/carapace/pkg/style"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
@@ -14,7 +15,7 @@ var verifyCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		freckles.Walk(func(freckle freckles.Freckle) error {
-			_style := style.ForPathExt(freckles.FreckleDir() + "/" + freckle.Path)
+			_style := style.ForPathExt(freckles.FreckleDir()+"/"+freckle.Path, carapace.NewContext(args))
 			if freckle.Verify() {
 				fmt.Printf("[%v] %v\n", format("OK", style.Green), format(freckle.Path, _style))
 			} else {

@@ -13,8 +13,8 @@ func ActionFreckles() carapace.Action {
 			vals = append(vals, dotfile.Path)
 			return nil
 		})
-		return carapace.ActionValues(vals...).Invoke(c).ToMultiPartsA("/").StyleF(func(s string) string {
-			return style.ForPath(freckles.FreckleDir() + s)
+		return carapace.ActionValues(vals...).Invoke(c).ToMultiPartsA("/").StyleF(func(s string, sc style.Context) string {
+			return style.ForPath(freckles.FreckleDir()+s, sc)
 		})
 	})
 }
