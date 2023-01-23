@@ -6,7 +6,7 @@ require (
 	github.com/go-git/go-billy/v5 v5.4.0
 	github.com/go-git/go-git/v5 v5.5.2
 	github.com/rsteube/carapace v0.31.1
-	github.com/rsteube/carapace-bin v0.20.2
+	github.com/rsteube/carapace-bin v0.20.3
 	github.com/spf13/cobra v1.6.1
 )
 
@@ -17,7 +17,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/invopop/jsonschema v0.7.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
-	github.com/rsteube/carapace-spec v0.5.1 // indirect
+	github.com/rsteube/carapace-spec v0.5.2 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/net v0.2.0 // indirect
 	golang.org/x/sys v0.3.0 // indirect
