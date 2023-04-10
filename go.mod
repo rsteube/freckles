@@ -3,7 +3,7 @@ module github.com/rsteube/freckles
 go 1.18
 
 require (
-	github.com/go-git/go-billy/v5 v5.4.0
+	github.com/go-git/go-billy/v5 v5.4.1
 	github.com/go-git/go-git/v5 v5.5.2
 	github.com/rsteube/carapace v0.35.0
 	github.com/rsteube/carapace-bin v0.24.1
