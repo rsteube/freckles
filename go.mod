@@ -5,8 +5,8 @@ go 1.18
 require (
 	github.com/go-git/go-billy/v5 v5.4.1
 	github.com/go-git/go-git/v5 v5.6.1
-	github.com/rsteube/carapace v0.36.2
-	github.com/rsteube/carapace-bin v0.24.4
+	github.com/rsteube/carapace v0.36.3
+	github.com/rsteube/carapace-bin v0.24.5
 	github.com/rsteube/carapace-bridge v0.1.0
 	github.com/spf13/cobra v1.7.0
 )
