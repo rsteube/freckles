@@ -28,8 +28,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rsteube/carapace v0.36.0/go.mod h1:iIKzq9/zstfWPo9Z4EDNN1RPmhTKldV9of1zlSGgYXI=
-github.com/rsteube/carapace v0.37.2 h1:uBblYPc7BZbW0KP35GWfyOL0HoqbZUWdPrJbnb4Wj+U=
-github.com/rsteube/carapace v0.37.2/go.mod h1:jkLt41Ne2TD2xPuMdX/2O05Smhy8vMgG7O2TYvC0yOc=
+github.com/rsteube/carapace v0.37.3 h1:Us0AnzZ0JiWVHmETSX8PBgp2UJCf/O7KhgSKSpokkII=
+github.com/rsteube/carapace v0.37.3/go.mod h1:jkLt41Ne2TD2xPuMdX/2O05Smhy8vMgG7O2TYvC0yOc=
 github.com/rsteube/carapace-bin v0.25.0 h1:doE09+5yXSSLbZfULnPdbLwDXCnJuLqo5fj3vugaq2Q=
 github.com/rsteube/carapace-bin v0.25.0/go.mod h1:JnJuBYQoosEw5FsJuCat7s57KfjF7YKce63fEZIr0f8=
 github.com/rsteube/carapace-bridge v0.1.0 h1:/huqne3VhstDFPOhm2xZ6cy5U9El1Mhi/7kD/5t7k2I=
