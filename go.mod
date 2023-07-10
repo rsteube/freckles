@@ -6,7 +6,7 @@ require (
 	github.com/go-git/go-billy/v5 v5.4.1
 	github.com/go-git/go-git/v5 v5.7.0
 	github.com/rsteube/carapace v0.37.3
-	github.com/rsteube/carapace-bin v0.25.0
+	github.com/rsteube/carapace-bin v0.25.1
 	github.com/rsteube/carapace-bridge v0.1.1
 	github.com/spf13/cobra v1.7.0
 )
@@ -19,7 +19,7 @@ require (
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/mod v0.11.0 // indirect
+	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
