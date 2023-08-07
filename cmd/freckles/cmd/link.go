@@ -28,7 +28,7 @@ func init() {
 			if dotfiledir, err := c.Abs("~/.local/share/freckles"); err != nil {
 				return carapace.ActionMessage(err.Error())
 			} else {
-				return carapace.ActionFiles().Chdir(dotfiledir).Invoke(c).Filter([]string{".git/"}).ToA()
+				return carapace.ActionFiles().Chdir(dotfiledir).Invoke(c).Filter(".git/").ToA()
 			}
 		}),
 	)
