@@ -7,7 +7,7 @@ toolchain go1.21.0
 require (
 	github.com/go-git/go-billy/v5 v5.4.1
 	github.com/go-git/go-git/v5 v5.8.1
-	github.com/rsteube/carapace v0.43.2
+	github.com/rsteube/carapace v0.43.3
 	github.com/rsteube/carapace-bin v0.27.0
 	github.com/rsteube/carapace-bridge v0.1.4
 	github.com/spf13/cobra v1.7.0
