@@ -32,8 +32,8 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/rogpeppe/go-internal v1.11.0 h1:cWPaGQEPrBb5/AsnsZesgZZ9yb1OQ+GOISoDNXVBh4M=
 github.com/rogpeppe/go-internal v1.11.0/go.mod h1:ddIwULY96R17DhadqLgMfk9H9tvdUzkipdSkR5nkCZA=
 github.com/rsteube/carapace v0.40.2/go.mod h1:jkLt41Ne2TD2xPuMdX/2O05Smhy8vMgG7O2TYvC0yOc=
-github.com/rsteube/carapace v0.43.5 h1:rbXIGGoffXew0Pk/oM5LHlMf1jBv34TedFXscl59zy4=
-github.com/rsteube/carapace v0.43.5/go.mod h1:1l4sZA+/sGW9sBLqEholUd+kn9xKgh2ghBFDYC3D/zA=
+github.com/rsteube/carapace v0.44.0 h1:PiiyjveMLCs1pGRvHKMQJyImYHqV616B+WVxUovwTfU=
+github.com/rsteube/carapace v0.44.0/go.mod h1:1l4sZA+/sGW9sBLqEholUd+kn9xKgh2ghBFDYC3D/zA=
 github.com/rsteube/carapace-bin v0.27.0 h1:22hgOXzJFO6QeNUtPUa9+m/GYNlPGUIwlsKBXL3pvRs=
 github.com/rsteube/carapace-bin v0.27.0/go.mod h1:LDGAr3ecvYuwJSOrO3X4sHwZQStFTXjQG04+p6rPODY=
 github.com/rsteube/carapace-bridge v0.1.4 h1:3ZgsUlGCg5JGQTb8Kec54gn+wgVWyWej8nincgPR+gM=
