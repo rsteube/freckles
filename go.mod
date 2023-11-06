@@ -8,7 +8,7 @@ require (
 	github.com/go-git/go-billy/v5 v5.5.0
 	github.com/go-git/go-git/v5 v5.10.0
 	github.com/rsteube/carapace v0.44.1
-	github.com/rsteube/carapace-bin v0.28.2
+	github.com/rsteube/carapace-bin v0.28.3
 	github.com/rsteube/carapace-bridge v0.1.4
 	github.com/spf13/cobra v1.7.0
 )
