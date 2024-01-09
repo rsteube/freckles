@@ -28,8 +28,8 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/rogpeppe/go-internal v1.11.0 h1:cWPaGQEPrBb5/AsnsZesgZZ9yb1OQ+GOISoDNXVBh4M=
 github.com/rogpeppe/go-internal v1.11.0/go.mod h1:ddIwULY96R17DhadqLgMfk9H9tvdUzkipdSkR5nkCZA=
 github.com/rsteube/carapace v0.47.4/go.mod h1:4ZC5bulItu9t9sZ5yPcHgPREd8rPf274Q732n+wfl/o=
-github.com/rsteube/carapace v0.48.3 h1:saVjdJaWNpeH/tR0zrlfVzqBo+eyNwFHOMi4ZNKyLtQ=
-github.com/rsteube/carapace v0.48.3/go.mod h1:4ZC5bulItu9t9sZ5yPcHgPREd8rPf274Q732n+wfl/o=
+github.com/rsteube/carapace v0.48.4 h1:TpLt7I2VQ05VNE+VO+MDfOR4AUVVpmK+olhhgBk8NwY=
+github.com/rsteube/carapace v0.48.4/go.mod h1:4ZC5bulItu9t9sZ5yPcHgPREd8rPf274Q732n+wfl/o=
 github.com/rsteube/carapace-bin v0.29.0 h1:pAkEIvv1usNMhVzSVWPdlQQWzOvT4ec5nIcX1d7K/A4=
 github.com/rsteube/carapace-bin v0.29.0/go.mod h1:ZXevkFSAxCN9kptiBzPkNdI5EhPsXB41qBiU4vEoAP0=
 github.com/rsteube/carapace-bridge v0.1.7 h1:g2Z908p7oZuApGOsfypHhdqG1ZoKk450zEpDsKNqpkg=
