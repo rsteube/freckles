@@ -29,8 +29,8 @@ github.com/rogpeppe/go-internal v1.11.0 h1:cWPaGQEPrBb5/AsnsZesgZZ9yb1OQ+GOISoDN
 github.com/rogpeppe/go-internal v1.11.0/go.mod h1:ddIwULY96R17DhadqLgMfk9H9tvdUzkipdSkR5nkCZA=
 github.com/rsteube/carapace v0.49.2 h1:BMtZK/iGeGFF2cAIn+x0zM46ZbNt7OM+p18sHHXpXm4=
 github.com/rsteube/carapace v0.49.2/go.mod h1:syVOvI8e2rEEK/9aMZxfWuHvcnQK/EcnTV4roClEnLE=
-github.com/rsteube/carapace-bin v0.30.0 h1:cJvtrnZ1UZf9FZYKKdVndY6tQfeyr1+tzeVsSo5eW9I=
-github.com/rsteube/carapace-bin v0.30.0/go.mod h1:9RQJHbwuSQnGbMScV1BxGGCXj0U9x/p9+KT6OuvQA9E=
+github.com/rsteube/carapace-bin v0.30.1 h1:AqMd2rMm8K2ggTwJB/iTQokx4yB5pZusxhfFZYtt+kM=
+github.com/rsteube/carapace-bin v0.30.1/go.mod h1:pqMYQTgI42z1advoW+Glz6q/wcLtxPkuk9Z5o72GkMc=
 github.com/rsteube/carapace-bridge v0.2.12 h1:d1kgjgqrmgOa7lHLj/b/esJv692kHSQvTXhmzdx8dwQ=
 github.com/rsteube/carapace-bridge v0.2.12/go.mod h1:dT8ZptEIYd4zyg5CnPPr+hiLDukPu+lZLcNeyU2Wy2w=
 github.com/rsteube/carapace-shlex v0.1.2 h1:ZKjhIfXoCkEnzensMglTaLbkNOaLkmM8SCRshpJKx6s=
