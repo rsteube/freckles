@@ -31,8 +31,8 @@ github.com/rsteube/carapace v0.50.1 h1:UShTOwM08wSvFuniKtqZvmBQ3pSDuoS6QrCu2w7TL
 github.com/rsteube/carapace v0.50.1/go.mod h1:syVOvI8e2rEEK/9aMZxfWuHvcnQK/EcnTV4roClEnLE=
 github.com/rsteube/carapace-bin v0.30.2 h1:8CDKCcom3nBQT6H5CdKmce+06xNh1RpSEKFo1u9K4z4=
 github.com/rsteube/carapace-bin v0.30.2/go.mod h1:U2DbXTB7Me2S2Y8rv3QKaCT1Xz5t2DCzwqkWYpOgDn4=
-github.com/rsteube/carapace-bridge v0.2.14 h1:yl4/7PRdNdXUK2wt/jyi9J24GoLdwjTnH4GYkNxPgj4=
-github.com/rsteube/carapace-bridge v0.2.14/go.mod h1:CrqtRDd1D8uT9woDXnEuer7tq8IfvR9MFAr3PuFKV7E=
+github.com/rsteube/carapace-bridge v0.2.15 h1:B90M1g28iXOfuER89P2zhwRKEafV7uxyF3BepvWoubA=
+github.com/rsteube/carapace-bridge v0.2.15/go.mod h1:CrqtRDd1D8uT9woDXnEuer7tq8IfvR9MFAr3PuFKV7E=
 github.com/rsteube/carapace-shlex v0.1.2 h1:ZKjhIfXoCkEnzensMglTaLbkNOaLkmM8SCRshpJKx6s=
 github.com/rsteube/carapace-shlex v0.1.2/go.mod h1:zPw1dOFwvLPKStUy9g2BYKanI6bsQMATzDMYQQybo3o=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
