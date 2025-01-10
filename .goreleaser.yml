@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
     - go mod download
@@ -13,43 +14,30 @@ builds:
     tags:
       - release
 archives:
-  - replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
-    name_template: "freckles-bin_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-checksum:
-  name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ .Tag }}-next"
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^docs:'
-      - '^test:'
+  -
+    name_template: '{{ .Binary }}_{{ .Version }}_termux_{{ .Arch }}{{ with .Arm }}v{{ . }}{{ end }}{{ with .Mips }}_{{ . }}{{ end }}{{ if not (eq .Amd64 "v1") }}{{ .Amd64 }}{{ end }}'
+
 brews:
   -
-    name: freckles-bin
+    name: freckles
     description: "simple dotfiles manager"
     homepage: "https://github.com/rsteube/freckles"
     license: "MIT"
-    tap:
+    repository:
       owner: rsteube
       name: homebrew-tap
       token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-scoop:
-  description: "simple dotfiles manager"
-  homepage: "https://github.com/rsteube/freckles"
-  license: "MIT"
-  bucket:
-    owner: rsteube
-    name: scoop-bucket
-    token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
-  commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
+scoops:
+  -
+    description: "simple dotfiles manager"
+    homepage: "https://github.com/rsteube/freckles"
+    license: "MIT"
+    repository:
+      owner: rsteube
+      name: scoop-bucket
+      token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
+    commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
 
 aurs:
   -
