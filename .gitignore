@@ -1,2 +1,3 @@
 cmd/freckles/freckles
 dist
+profile.cov
