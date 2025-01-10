@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/rsteube/carapace"
+	"github.com/carapace-sh/carapace"
 	"github.com/rsteube/freckles/cmd/freckles/cmd/action"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
