@@ -10,7 +10,7 @@ require (
 	github.com/rsteube/carapace v0.50.2
 	github.com/rsteube/carapace-bin v0.30.2
 	github.com/rsteube/carapace-bridge v0.2.15
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 )
 
 require (
