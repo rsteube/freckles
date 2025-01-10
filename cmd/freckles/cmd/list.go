@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rsteube/carapace"
-	"github.com/rsteube/carapace/pkg/style"
+	"github.com/carapace-sh/carapace"
+	"github.com/carapace-sh/carapace/pkg/style"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )

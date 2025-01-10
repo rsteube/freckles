@@ -4,8 +4,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/rsteube/carapace"
-	"github.com/rsteube/carapace-bin/pkg/actions/tools/git"
+	"github.com/carapace-sh/carapace"
+	"github.com/carapace-sh/carapace-bin/pkg/actions/tools/git"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
