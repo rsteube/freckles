@@ -26,11 +26,11 @@ type Freckle struct {
 }
 
 func (d *Freckle) HomePath() string {
-	return fmt.Sprintf("%v/%v", home, d.Path)
+	return filepath.Join(home, d.Path)
 }
 
-func (d *Freckle) FrecklePath() string {
-	return fmt.Sprintf("%v/%v", Dir(), d.Path)
+func (f *Freckle) FrecklePath() string {
+	return filepath.Join(Dir(), f.Path)
 }
 
 func (d *Freckle) Add(force bool) (err error) {
@@ -74,7 +74,7 @@ func Walk(walkfunc func(freckle Freckle) error) error {
 		println(err.Error())
 		return err
 	} else {
-		return filepath.Walk(home+"/.local/share/freckles/", func(path string, info os.FileInfo, err error) error {
+		return filepath.Walk(Dir(), func(path string, info os.FileInfo, err error) error {
 			if matcher.Match([]string{strings.TrimPrefix(path, Dir())}, info.IsDir()) {
 				if info.IsDir() {
 					return filepath.SkipDir
@@ -83,7 +83,7 @@ func Walk(walkfunc func(freckle Freckle) error) error {
 			}
 
 			if !info.IsDir() {
-				walkfunc(Freckle{Path: strings.TrimPrefix(path, home+"/.local/share/freckles/")})
+				walkfunc(Freckle{Path: strings.TrimPrefix(path, Dir())})
 			}
 			return nil
 		})
@@ -102,7 +102,7 @@ func frecklesIgnore() (gitignore.Matcher, error) {
 	}
 }
 
-// readIgnoreFile reads a specific git ignore file. (soruce gitignore/dir.go)
+// readIgnoreFile reads a specific git ignore file. (source gitignore/dir.go)
 func readIgnoreFile(fs billy.Filesystem, path []string, ignoreFile string) (ps []gitignore.Pattern, err error) {
 	commentPrefix := "#"
 	f, err := fs.Open(fs.Join(append(path, ignoreFile)...))
