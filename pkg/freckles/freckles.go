@@ -30,7 +30,7 @@ func (d *Freckle) HomePath() string {
 }
 
 func (d *Freckle) FrecklePath() string {
-	return fmt.Sprintf("%v/%v", FreckleDir(), d.Path)
+	return fmt.Sprintf("%v/%v", Dir(), d.Path)
 }
 
 func (d *Freckle) Add(force bool) (err error) {
@@ -75,7 +75,7 @@ func Walk(walkfunc func(freckle Freckle) error) error {
 		return err
 	} else {
 		return filepath.Walk(home+"/.local/share/freckles/", func(path string, info os.FileInfo, err error) error {
-			if matcher.Match([]string{strings.TrimPrefix(path, FreckleDir())}, info.IsDir()) {
+			if matcher.Match([]string{strings.TrimPrefix(path, Dir())}, info.IsDir()) {
 				if info.IsDir() {
 					return filepath.SkipDir
 				}
@@ -90,12 +90,12 @@ func Walk(walkfunc func(freckle Freckle) error) error {
 	}
 }
 
-func FreckleDir() string {
+func Dir() string {
 	return home + "/.local/share/freckles/"
 }
 
 func frecklesIgnore() (gitignore.Matcher, error) {
-	if patterns, err := readIgnoreFile(osfs.New(FreckleDir()), []string{}, "/.frecklesignore"); err != nil {
+	if patterns, err := readIgnoreFile(osfs.New(Dir()), []string{}, "/.frecklesignore"); err != nil {
 		return nil, err
 	} else {
 		return gitignore.NewMatcher(patterns), nil

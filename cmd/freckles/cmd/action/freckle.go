@@ -14,7 +14,7 @@ func ActionFreckles() carapace.Action {
 			return nil
 		})
 		return carapace.ActionValues(vals...).MultiParts("/").StyleF(func(s string, sc style.Context) string {
-			return style.ForPath(freckles.FreckleDir()+s, sc)
+			return style.ForPath(freckles.Dir()+s, sc)
 		})
 	})
 }

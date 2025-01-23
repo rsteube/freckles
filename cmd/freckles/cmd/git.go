@@ -15,7 +15,7 @@ var gitCmd = &cobra.Command{
 	Short:              "invoke git on freckles directory",
 	DisableFlagParsing: true,
 	Run: func(cmd *cobra.Command, args []string) {
-		c := exec.Command("git", append([]string{"-C", freckles.FreckleDir()}, args...)...)
+		c := exec.Command("git", append([]string{"-C", freckles.Dir()}, args...)...)
 		c.Stdin = os.Stdin
 		c.Stdout = os.Stdout
 		c.Stderr = os.Stderr
@@ -28,7 +28,7 @@ func init() {
 
 	carapace.Gen(gitCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			return bridge.ActionCarapaceBin("git").Chdir(freckles.FreckleDir())
+			return bridge.ActionCarapaceBin("git").Chdir(freckles.Dir())
 		}),
 	)
 }

@@ -15,9 +15,9 @@ var initCmd = &cobra.Command{
 	Short: "init freckles folder",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		// ANCHOR: command
-		c := exec.Command("git", "init", freckles.FreckleDir())
+		c := exec.Command("git", "init", freckles.Dir())
 		if cmd.Flag("clone").Changed {
-			c = exec.Command("git", "clone", cmd.Flag("clone").Value.String(), freckles.FreckleDir())
+			c = exec.Command("git", "clone", cmd.Flag("clone").Value.String(), freckles.Dir())
 		}
 		c.Stdin = os.Stdin
 		c.Stdout = os.Stdout
@@ -27,8 +27,8 @@ var initCmd = &cobra.Command{
 		}
 		// ANCHOR_END: command
 
-		if _, err := os.Stat(freckles.FreckleDir() + ".frecklesignore"); os.IsNotExist(err) {
-			return os.WriteFile(freckles.FreckleDir()+".frecklesignore", []byte(".git\n.frecklesignore\n"), os.ModePerm)
+		if _, err := os.Stat(freckles.Dir() + ".frecklesignore"); os.IsNotExist(err) {
+			return os.WriteFile(freckles.Dir()+".frecklesignore", []byte(".git\n.frecklesignore\n"), os.ModePerm)
 		}
 		return nil
 	},

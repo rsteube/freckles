@@ -15,7 +15,7 @@ var verifyCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		freckles.Walk(func(freckle freckles.Freckle) error {
-			_style := style.ForPathExt(freckles.FreckleDir()+"/"+freckle.Path, carapace.NewContext(args...))
+			_style := style.ForPathExt(freckles.Dir()+"/"+freckle.Path, carapace.NewContext(args...))
 			if freckle.Verify() {
 				fmt.Printf("[%v] %v\n", format("OK", style.Green), format(freckle.Path, _style))
 			} else {

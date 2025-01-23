@@ -16,7 +16,7 @@ var editCmd = &cobra.Command{
 	Short: "edit a dotfile",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		c := exec.Command(editor(), freckles.FreckleDir()+"/"+args[0])
+		c := exec.Command(editor(), freckles.Dir()+"/"+args[0])
 		c.Stdin = os.Stdin
 		c.Stdout = os.Stdout
 		c.Stderr = os.Stderr

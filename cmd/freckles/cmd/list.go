@@ -16,7 +16,7 @@ var listCmd = &cobra.Command{
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		freckles.Walk(func(freckle freckles.Freckle) error {
-			_style := style.ForPathExt(freckles.FreckleDir()+"/"+freckle.Path, carapace.NewContext(args...))
+			_style := style.ForPathExt(freckles.Dir()+"/"+freckle.Path, carapace.NewContext(args...))
 			fmt.Println(format(freckle.Path, _style))
 			return nil
 		})
