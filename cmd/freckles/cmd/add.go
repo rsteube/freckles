@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/carapace-sh/carapace"
+	"github.com/carapace-sh/carapace/pkg/traverse"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
@@ -25,11 +26,14 @@ func init() {
 
 	carapace.Gen(addCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			if home, err := c.Abs("~/"); err != nil {
-				return carapace.ActionMessage(err.Error())
-			} else {
-				return carapace.ActionFiles().Chdir(home)
+			batch := carapace.Batch(
+				carapace.ActionFiles(),
+			)
+			if c.Value == "" {
+				c.Value = "."
+				batch = append(batch, carapace.ActionFiles().Context(c))
 			}
+			return batch.ToA().ChdirF(traverse.UserHomeDir)
 		}),
 	)
 }

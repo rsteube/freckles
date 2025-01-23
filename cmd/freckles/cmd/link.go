@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/carapace-sh/carapace"
+	"github.com/rsteube/freckles/cmd/freckles/cmd/action"
 	"github.com/rsteube/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
@@ -23,13 +24,8 @@ var linkCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(linkCmd)
 
+	// TODO update command to only link given freckle
 	carapace.Gen(linkCmd).PositionalAnyCompletion(
-		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			if dotfiledir, err := c.Abs("~/.local/share/freckles"); err != nil {
-				return carapace.ActionMessage(err.Error())
-			} else {
-				return carapace.ActionFiles().Chdir(dotfiledir).Invoke(c).Filter(".git/").ToA()
-			}
-		}),
+		action.ActionFreckles(),
 	)
 }
