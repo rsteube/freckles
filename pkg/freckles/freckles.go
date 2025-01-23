@@ -14,6 +14,10 @@ import (
 
 var home string
 
+func Dir() string {
+	return home + "/.local/share/freckles/"
+}
+
 func init() {
 	var err error
 	if home, err = os.UserHomeDir(); err != nil {
@@ -52,10 +56,11 @@ func (d *Freckle) Add(force bool) (err error) {
 	return
 }
 
-func (d *Freckle) Symlink(force bool) (err error) {
-	_ = os.MkdirAll(filepath.Dir(d.HomePath()), os.ModePerm)
-	err = os.Symlink(d.FrecklePath(), d.HomePath())
-	return
+func (d *Freckle) Symlink(force bool) error {
+	if err := os.MkdirAll(filepath.Dir(d.HomePath()), os.ModePerm); err != nil {
+		return err
+	}
+	return os.Symlink(d.FrecklePath(), d.HomePath())
 }
 
 func (d *Freckle) Verify() (ok bool) {
@@ -70,36 +75,33 @@ func (d *Freckle) Verify() (ok bool) {
 }
 
 func Walk(walkfunc func(freckle Freckle) error) error {
-	if matcher, err := frecklesIgnore(); err != nil {
-		println(err.Error())
+	matcher, err := frecklesIgnore()
+	if err != nil {
+		println(err.Error()) // TODO remove
 		return err
-	} else {
-		return filepath.Walk(Dir(), func(path string, info os.FileInfo, err error) error {
-			if matcher.Match([]string{strings.TrimPrefix(path, Dir())}, info.IsDir()) {
-				if info.IsDir() {
-					return filepath.SkipDir
-				}
-				return nil
-			}
+	}
 
-			if !info.IsDir() {
-				walkfunc(Freckle{Path: strings.TrimPrefix(path, Dir())})
+	return filepath.Walk(Dir(), func(path string, info os.FileInfo, err error) error {
+		if matcher.Match([]string{strings.TrimPrefix(path, Dir())}, info.IsDir()) {
+			if info.IsDir() {
+				return filepath.SkipDir
 			}
 			return nil
-		})
-	}
-}
+		}
 
-func Dir() string {
-	return home + "/.local/share/freckles/"
+		if !info.IsDir() {
+			walkfunc(Freckle{Path: strings.TrimPrefix(path, Dir())})
+		}
+		return nil
+	})
 }
 
 func frecklesIgnore() (gitignore.Matcher, error) {
-	if patterns, err := readIgnoreFile(osfs.New(Dir()), []string{}, "/.frecklesignore"); err != nil {
+	patterns, err := readIgnoreFile(osfs.New(Dir()), []string{}, "/.frecklesignore")
+	if err != nil {
 		return nil, err
-	} else {
-		return gitignore.NewMatcher(patterns), nil
 	}
+	return gitignore.NewMatcher(patterns), nil
 }
 
 // readIgnoreFile reads a specific git ignore file. (source gitignore/dir.go)
