@@ -36,12 +36,12 @@ func editor() string { // source github.com/cli/cli
 	defaultEditor := "vi"
 	if runtime.GOOS == "windows" {
 		defaultEditor = "notepad"
-	} else if g := os.Getenv("GIT_EDITOR"); g != "" {
-		defaultEditor = g
-	} else if v := os.Getenv("VISUAL"); v != "" {
-		defaultEditor = v
-	} else if e := os.Getenv("EDITOR"); e != "" {
-		defaultEditor = e
+	} else if value := os.Getenv("GIT_EDITOR"); value != "" {
+		defaultEditor = value
+	} else if value := os.Getenv("VISUAL"); value != "" {
+		defaultEditor = value
+	} else if value := os.Getenv("EDITOR"); value != "" {
+		defaultEditor = value
 	}
 	return defaultEditor
 }

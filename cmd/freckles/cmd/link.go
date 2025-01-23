@@ -12,8 +12,8 @@ var linkCmd = &cobra.Command{
 	Short: "link dotfiles",
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		freckles.Walk(func(d freckles.Freckle) error {
-			if err := d.Symlink(false); err != nil {
+		freckles.Walk(func(freckle freckles.Freckle) error {
+			if err := freckle.Symlink(false); err != nil {
 				println(err.Error())
 			}
 			return nil

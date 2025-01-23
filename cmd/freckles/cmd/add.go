@@ -13,8 +13,8 @@ var addCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		for _, arg := range args {
-			d := freckles.Freckle{Path: arg}
-			if err := d.Add(false); err != nil {
+			freckle := freckles.Freckle{Path: arg}
+			if err := freckle.Add(false); err != nil {
 				println(err.Error())
 			}
 		}
@@ -30,8 +30,10 @@ func init() {
 				carapace.ActionFiles(),
 			)
 			if c.Value == "" {
-				c.Value = "."
-				batch = append(batch, carapace.ActionFiles().Context(c))
+				batch = append(batch, carapace.ActionCallback(func(c carapace.Context) carapace.Action {
+					c.Value = "."
+					return carapace.ActionFiles().Invoke(c).ToA()
+				}))
 			}
 			return batch.ToA().ChdirF(traverse.UserHomeDir)
 		}),
