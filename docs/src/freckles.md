@@ -6,7 +6,7 @@
 
 ## Carapace
 
-[Freckles] is based on [Carapace] and serves as real-world example application.
+[Freckles] is based on [Carapace] and serves as example application.
 
 The following documentation thus covers implementation details and highlights aspects on how to integrate with [Carapace].
 

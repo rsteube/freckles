@@ -2,36 +2,34 @@ package cmd
 
 import (
 	"github.com/carapace-sh/carapace"
+	spec "github.com/carapace-sh/carapace-spec"
+	"github.com/rsteube/freckles/cmd/freckles/cmd/action"
 	"github.com/spf13/cobra"
 )
 
+// ANCHOR: cmd
 var rootCmd = &cobra.Command{
 	Use:   "freckles",
 	Short: "A simple dotfile manager.",
-	Example: `  Completion:
-    bash:       source <(freckles _carapace)
-    elvish:     eval (freckles _carapace|slurp)
-    fish:       freckles _carapace | source
-    oil:        source <(freckles _carapace)
-    nushell:    freckles _carapace | save freckles.nu ; nu -c 'source freckles.nu'
-    powershell: freckles _carapace | Out-String | Invoke-Expression
-    tcsh:       eval ` + "`" + `freckles _carapace` + "`" + `
-    xonsh:      exec($(freckles _carapace))
-    zsh:        source <(freckles _carapace)
-    `,
-	Run: func(cmd *cobra.Command, args []string) {},
+	Run:   func(cmd *cobra.Command, args []string) {},
 	CompletionOptions: cobra.CompletionOptions{
 		DisableDefaultCmd: true,
 	},
 }
 
+// ANCHOR_END: cmd
+
 func Execute(version string) error {
 	rootCmd.Version = version
-	rootCmd.InitDefaultVersionFlag()
 	return rootCmd.Execute()
 }
 
+// ANCHOR: init
 func init() {
-	rootCmd.InitDefaultHelpFlag()
 	carapace.Gen(rootCmd)
+
+	spec.AddMacro("freckles", spec.MacroN(action.ActionFreckles))
+	spec.Register(rootCmd)
 }
+
+// ANCHOR_END: init
