@@ -16,7 +16,12 @@ RUN echo "[credential \"https://github.com\"]\n\
         helper = !gh auth git-credential\n"\
       > /root/.gitconfig
 
-RUN echo "#!/bin/sh\nexec tmux new-session ';' resize-window -x 80 -y 12" \
+RUN echo "set-option -g default-shell /usr/local/bin/elvish \n\
+set-option -g mouse on\n\
+bind-key -T root MouseDown1Pane select-pane -t =" \
+       > /root/.tmux.conf
+
+RUN echo "#!/bin/sh\nexec tmux -u new-session ';' resize-window -x 80 -y 12" \
        > /usr/local/bin/tmux-mini \
  && chmod +x /usr/local/bin/tmux-mini
 
