@@ -6,7 +6,7 @@ toolchain go1.23.4
 
 require (
 	github.com/carapace-sh/carapace v1.7.0
-	github.com/carapace-sh/carapace-bin v1.1.1
+	github.com/carapace-sh/carapace-bin v1.2.1
 	github.com/carapace-sh/carapace-bridge v1.2.3
 	github.com/go-git/go-billy/v5 v5.6.2
 	github.com/go-git/go-git/v5 v5.13.2
