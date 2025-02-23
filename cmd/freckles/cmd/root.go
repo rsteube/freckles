@@ -24,12 +24,13 @@ func Execute(version string) error {
 	return rootCmd.Execute()
 }
 
-// ANCHOR: init
 func init() {
+	// ANCHOR: gen
 	carapace.Gen(rootCmd)
+	// ANCHOR_END: gen
 
+	// ANCHOR: macro
 	spec.AddMacro("freckles", spec.MacroN(action.ActionFreckles))
 	spec.Register(rootCmd)
+	// ANCHOR_END: macro
 }
-
-// ANCHOR_END: init

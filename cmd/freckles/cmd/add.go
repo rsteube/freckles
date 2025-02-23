@@ -24,6 +24,7 @@ var addCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(addCmd)
 
+	// ANCHOR: positional
 	carapace.Gen(addCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			batch := carapace.Batch(
@@ -38,4 +39,5 @@ func init() {
 			return batch.ToA().ChdirF(traverse.UserHomeDir)
 		}),
 	)
+	// ANCHOR: positional
 }

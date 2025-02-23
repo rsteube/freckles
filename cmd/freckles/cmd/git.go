@@ -10,6 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// ANCHOR: cmd
 var gitCmd = &cobra.Command{
 	Use:                "git",
 	Short:              "invoke git on freckles directory",
@@ -23,12 +24,16 @@ var gitCmd = &cobra.Command{
 	},
 }
 
+// ANCHOR_END: cmd
+
 func init() {
 	rootCmd.AddCommand(gitCmd)
 
+	// ANCHOR: positional
 	carapace.Gen(gitCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
 			return bridge.ActionCarapaceBin("git").Chdir(freckles.Dir())
 		}),
 	)
+	// ANCHOR_END: positional
 }
