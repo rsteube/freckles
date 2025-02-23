@@ -1,1 +1,3 @@
 # Link
+
+![](./link/link.cast)
