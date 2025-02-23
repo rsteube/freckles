@@ -3,8 +3,12 @@ FROM ghcr.io/carapace-sh/shell-elvish
 RUN echo "deb [trusted=yes] https://apt.fury.io/rsteube/ /" \
        >  /etc/apt/sources.list.d/fury.list
 
-RUN apt-get update && apt-get install -y asciinema carapace-bin gh git tmux
+RUN apt-get update && apt-get install -y carapace-bin gh git tmux
 
+RUN curl -L https://github.com/asciinema/asciinema/releases/download/v3.0.0-rc.3/asciinema-x86_64-unknown-linux-gnu \
+         > /usr/local/bin/asciinema \
+ && chmod +x /usr/local/bin/asciinema
+ 
 RUN echo "eval (carapace _carapace|slurp)" \
       >> /root/.config/elvish/rc.elv
 
@@ -21,7 +25,7 @@ set-option -g mouse on\n\
 bind-key -T root MouseDown1Pane select-pane -t =" \
        > /root/.tmux.conf
 
-RUN echo "#!/bin/sh\nexec tmux -u new-session ';' resize-window -x 80 -y 12" \
+RUN echo "#!/bin/sh\nexec tmux -u new-session ';' resize-window -x 108 -y 24" \
        > /usr/local/bin/tmux-mini \
  && chmod +x /usr/local/bin/tmux-mini
 

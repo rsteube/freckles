@@ -6,6 +6,8 @@
 {{#include ../../../../cmd/freckles/cmd/init.go:command}}
 ```
 
+![](./init/init.cast)
+
 ## Clone
 
 Completion for the `--clone` flag is provided by [ActionRepositorySearch].
@@ -13,6 +15,8 @@ Completion for the `--clone` flag is provided by [ActionRepositorySearch].
 ```go
 {{#include ../../../../cmd/freckles/cmd/init.go:flagcompletion}}
 ```
+
+![](./init/clone.cast)
 
 > [Macros] provide a way to _loosely_ share [Actions] between applications.
 

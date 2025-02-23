@@ -5,6 +5,6 @@ window.addEventListener("load", function () {
       const newItem = document.createElement("div");
       newItem.id = elem.src;
       elem.parentNode.replaceChild(newItem, elem);
-      AsciinemaPlayer.create(newItem.id, newItem, {cols: 108, rows: 24});
+      AsciinemaPlayer.create(newItem.id, newItem, {cols: 80, rows: 12});
     }
 })
