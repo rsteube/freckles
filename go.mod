@@ -2,7 +2,7 @@ module github.com/carapace-sh/freckles
 
 go 1.23.1
 
-toolchain go1.23.4
+toolchain go1.24.1
 
 require (
 	github.com/carapace-sh/carapace v1.8.0
@@ -20,7 +20,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
-	golang.org/x/net v0.35.0 // indirect
+	golang.org/x/net v0.36.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
