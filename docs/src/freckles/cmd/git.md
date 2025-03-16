@@ -19,5 +19,5 @@ Completion is provided with [`ActionCarapaceBin`].
 ![](./git/git.cast)
 
 [`ActionCarapaceBin`]:https://pkg.go.dev/github.com/carapace-sh/carapace-bridge/pkg/actions/bridge#ActionCarapaceBin
-[Freckles]:https://github.com/rsteube/freckles
+[Freckles]:https://github.com/carapace-sh/freckles
 [Git]:https://git-scm.com/

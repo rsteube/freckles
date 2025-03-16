@@ -57,4 +57,4 @@ Completion is provided with a [custom action].
 [Default Actions]:https://carapace-sh.github.io/carapace/carapace/defaultActions.html
 [MultiParts]:https://carapace-sh.github.io/carapace/carapace/action/multiParts.html
 [`style.ForPath`]:https://pkg.go.dev/github.com/carapace-sh/carapace/pkg/style#ForPath
-[Walk]:https://pkg.go.dev/github.com/rsteube/freckles/pkg/freckles#Walk
+[Walk]:https://pkg.go.dev/github.com/carapace-sh/freckles/pkg/freckles#Walk

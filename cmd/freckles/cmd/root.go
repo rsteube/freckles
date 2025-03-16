@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/carapace-sh/carapace"
 	spec "github.com/carapace-sh/carapace-spec"
-	"github.com/rsteube/freckles/cmd/freckles/cmd/action"
+	"github.com/carapace-sh/freckles/cmd/freckles/cmd/action"
 	"github.com/spf13/cobra"
 )
 
