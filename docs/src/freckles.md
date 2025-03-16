@@ -12,5 +12,5 @@ The following documentation thus covers implementation details and highlights ho
 
 [Carapace]:https://carapace.sh
 [dotfile]:https://dotfiles.github.io/
-[Freckles]:https://github.com/rsteube/freckles
+[Freckles]:https://github.com/carapace-sh/freckles
 [symlink]:https://en.wikipedia.org/wiki/Symbolic_link

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/rsteube/freckles/cmd/freckles/cmd"
+import "github.com/carapace-sh/freckles/cmd/freckles/cmd"
 
 var version = "develop"
 

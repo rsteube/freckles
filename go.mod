@@ -1,4 +1,4 @@
-module github.com/rsteube/freckles
+module github.com/carapace-sh/freckles
 
 go 1.23.1
 

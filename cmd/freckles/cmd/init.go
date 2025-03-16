@@ -6,7 +6,7 @@ import (
 
 	"github.com/carapace-sh/carapace"
 	spec "github.com/carapace-sh/carapace-spec"
-	"github.com/rsteube/freckles/pkg/freckles"
+	"github.com/carapace-sh/freckles/pkg/freckles"
 	"github.com/spf13/cobra"
 )
 
