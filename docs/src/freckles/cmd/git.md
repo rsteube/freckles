@@ -20,14 +20,14 @@ Completion is provided with [`ActionCarapaceBin`].
 
 > Without arguments [`ActionCarapaceBin`] completes all registered commands.
 >
-> Here, we limit it to `git`.
-> But it could be even more specific by passing subcommands, flags and arguments.
+> Here, we limit it to the [Git] command and further specify it with arguments.
 >
 > ---
 >
-> Just as above we change the directory with [Chdir] to the repository.
+> Just as above we change the directory with `-C <dir>` to the repository.
 >
-> Note that [Carapace] also supports generic modifications like `-C <dir>` with [PreInvoke].
+> This works because the [Git] completer in [Carapace] implemented generic folder modifications with [PreInvoke].
+> Nonetheless, [Chdir] should normally be used for this.
 >
 > ---
 >
