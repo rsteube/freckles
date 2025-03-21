@@ -32,7 +32,7 @@ func init() {
 	// ANCHOR: positional
 	carapace.Gen(gitCmd).PositionalAnyCompletion(
 		carapace.ActionCallback(func(c carapace.Context) carapace.Action {
-			return bridge.ActionCarapaceBin("git").Chdir(freckles.Dir())
+			return bridge.ActionCarapaceBin("git", "-C", freckles.Dir())
 		}),
 	)
 	// ANCHOR_END: positional
