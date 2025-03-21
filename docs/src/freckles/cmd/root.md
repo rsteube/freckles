@@ -18,7 +18,7 @@
 
 ## Gen
 
-[Gen] adds a hidden `_carapace` subcommand which handles [script](#script) generation, [completions](#export), and [macros](#macro).
+[Gen] adds a hidden `_carapace` subcommand which handles [script](#script) generation, completion [export](#export), and [macros](#macro).
 
 ```go
 {{#include ../../../../cmd/freckles/cmd/root.go:gen}}
@@ -70,7 +70,7 @@ freckles _carapace export freckles [ARGS]...
 > This has several benefits:
 > - it avoids the [startup delay] issue
 > - it provides a central registration point for all shells
-> - it enables [embedding] with [`bridge.ActionCarapaceBin`]
+> - it enables [embedding] with [`ActionCarapaceBin`]
 > - it uses the newest version of [Carapace] for shell integration
 
 ## Macro
@@ -88,7 +88,7 @@ freckles _carapace export freckles [ARGS]...
 > More on this at [Init#Clone](./init.md#clone) and [Edit#Action](./edit.md#action).
 
 [#1336]:https://github.com/carapace-sh/carapace-bin/issues/1336
-[`bridge.ActionCarapaceBin`]:https://pkg.go.dev/github.com/carapace-sh/carapace-bridge/pkg/actions/bridge#ActionCarapaceBin
+[`ActionCarapaceBin`]:https://pkg.go.dev/github.com/carapace-sh/carapace-bridge/pkg/actions/bridge#ActionCarapaceBin
 [Actions]:https://carapace-sh.github.io/carapace/carapace/action.html
 [Carapace]:https://carapace.sh
 [Cobra]:https://github.com/spf13/cobra

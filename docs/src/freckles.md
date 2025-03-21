@@ -8,7 +8,7 @@
 
 [Freckles] is based on [Carapace] and serves as an example application.
 
-The following documentation thus covers implementation details and highlights how [Carapace] provides completion.
+The following documentation thus covers implementation details and highlights how completions are provided.
 
 [Carapace]:https://carapace.sh
 [dotfile]:https://dotfiles.github.io/

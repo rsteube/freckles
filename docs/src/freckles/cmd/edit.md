@@ -40,7 +40,7 @@ Completion is provided with a [custom action].
 >
 > ---
 >
-> The [Walk] function returns dotfiles with their full path within the repository: `path/to/freckle`.
+> The [Walk] function returns dotfiles with their full path within the repository: `path/to/file`.
 > By modifying the [Action] with [MultiParts] the segments get completed separately.
 >
 > ---
