@@ -12,7 +12,7 @@ Creates a new [Git] repository at `~/.local/share/freckles`.
 
 Alternatively an existing remote repository can be cloned with the `--clone` flag.
 
-Completion is provided by [ActionRepositorySearch].
+Completion is provided with [ActionRepositorySearch].
 
 ```go
 {{#include ../../../../cmd/freckles/cmd/init.go:flagcompletion}}
