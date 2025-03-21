@@ -18,7 +18,7 @@ Completion is provided with [`ActionCarapaceBin`].
 
 ![](./git/git.cast)
 
-> Without arguments [`ActionCarapaceBin`] completes all registered commands.
+> Without arguments, [`ActionCarapaceBin`] completes all registered commands.
 >
 > Here, we limit it to the [Git] command and further specify it with arguments.
 >
@@ -27,13 +27,13 @@ Completion is provided with [`ActionCarapaceBin`].
 > Just as above we change the directory with `-C <dir>` to the repository.
 >
 > This works because the [Git] completer in [Carapace] implemented generic folder modifications with [PreInvoke].
-> Nonetheless, [Chdir] should normally be used for this.
+> Nonetheless, [Chdir] should generally be used for this.
 >
 > ---
 >
-> When fully embedding a command `DisableFlagParsing: true` is the right aproach.
+> When fully embedding a command `DisableFlagParsing: true` is the right approach.
 >
-> But for [sudo]-like behaviour where the local command has flags as well there is [SetInterspersed].
+> But for [sudo]-like behavior where the local command has flags as well, there is [SetInterspersed].
 > Disabling it stops flag parsing after the first positional argument.
 
 [`ActionCarapaceBin`]:https://pkg.go.dev/github.com/carapace-sh/carapace-bridge/pkg/actions/bridge#ActionCarapaceBin
